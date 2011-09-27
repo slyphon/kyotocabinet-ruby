@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
-  s.name        = "kyotocabinet-ruby"
+  s.name        = "slyphon-kyotocabinet-ruby"
   s.version     = "1.27.1"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["FAL Labs"]

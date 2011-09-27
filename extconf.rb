@@ -13,7 +13,11 @@ kclibs = kclibs.gsub(/-L[\S]+/, "").strip
 
 kccflags = "-I/usr/local/include" if(kccflags.length < 1)
 kcldflags = "-L/usr/local/lib" if(kcldflags.length < 1)
-kclibs = "-lkyotocabinet -lz -lstdc++ -lrt -lpthread -lm -lc" if(kclibs.length < 1)
+
+if (kclibs.length < 1)
+  kclibs = "-lkyotocabinet -lz -lstdc++ -lpthread -lm -lc" 
+  kclibs = "#{kclibs} -lrt" unless RUBY_PATFORM =~ /darwin/
+end
 
 Config::CONFIG["CPP"] = "g++ -E"
 $CFLAGS = "-I. #{kccflags} -Wall #{$CFLAGS} -O2"
